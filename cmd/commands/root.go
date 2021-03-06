@@ -24,6 +24,9 @@ func performEach(command *cobra.Command, arg string, ec *errors.Center) ([]flave
 		return flaverObject.FindAll(repo)
 	}
 	release, err := flaverObject.Find(repo)
+	if release == nil {
+		return []flaver.Release{}, err
+	}
 	return []flaver.Release{release}, err
 }
 

@@ -32,7 +32,7 @@ type GitHubFlaver struct {
 
 func (ghf *GitHubFlaver) Find(repo *Repository) (Release, error) {
 	releases, err := ghf.FindAll(repo)
-	if err == nil {
+	if err == nil && len(releases) > 0 {
 		return releases[0], err
 	}
 	return nil, err

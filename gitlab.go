@@ -35,7 +35,7 @@ type GitLabFlaver struct {
 
 func (glf *GitLabFlaver) Find(repo *Repository) (Release, error) {
 	releases, err := glf.FindAll(repo)
-	if err == nil {
+	if err == nil && len(releases) > 0 {
 		return releases[0], err
 	}
 	return nil, err
